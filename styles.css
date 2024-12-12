@@ -4,11 +4,15 @@ body {
     height: 200vh; /* Permet un défilement long */
     background: linear-gradient(to bottom, #ffe5ec, #fdfdfd);
     overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
     position: relative;
     height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +20,8 @@ body {
 
 .heart-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,42 +32,44 @@ body {
 
 .heart {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: red;
     transform: rotate(-45deg);
     top: 0;
     left: 0;
-    margin: 50px;
+    margin: 75px;
     animation: pulse 2s infinite;
+    z-index: 1;
 }
 
 .heart:before,
 .heart:after {
     content: '';
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: red;
     border-radius: 50%;
 }
 
 .heart:before {
-    top: -50px;
+    top: -75px;
     left: 0;
 }
 
 .heart:after {
-    left: -50px;
+    left: -75px;
     top: 0;
 }
 
 .message {
     position: absolute;
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
     opacity: 0;
+    z-index: 2; /* Superpose le message au cœur */
     transition: opacity 1s ease-out;
 }
 
