@@ -1,18 +1,16 @@
-// Récupère toutes les sections à animer
-const sections = document.querySelectorAll('.section');
+// Sélectionne les éléments à animer
+const heartContainer = document.querySelector('.heart-container');
+const message = document.getElementById('message');
 
 window.addEventListener('scroll', () => {
-    const triggerPoint = window.innerHeight * 0.8;
+    const triggerPoint = window.innerHeight * 0.7; // Déclenche à 70% de la hauteur
 
-    sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
+    const heartTop = heartContainer.getBoundingClientRect().top;
 
-        if (top < triggerPoint) {
-            section.classList.add('visible');
-            section.classList.remove('hidden');
-        } else {
-            section.classList.add('hidden');
-            section.classList.remove('visible');
-        }
-    });
+    if (heartTop < triggerPoint) {
+        heartContainer.classList.add('visible'); // Montre le cœur
+        setTimeout(() => {
+            message.classList.add('reveal'); // Montre le message
+        }, 500); // Laisse un petit délai pour la fluidité
+    }
 });
